@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="flex-settings.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper flex row">
+        <section class="sidebar flex column">
+            <h1>Meteo project</h1>
+
+            <ul class="flex column">
+                <li><a href="">7-Day Weather</a></li>
+                <li><a href="">14-Day Weather</a></li>
+                <li><a href="">Weather Today</a></li>
+                <li><a href="">Webcams</a></li>
+                <li><a href="">Weather Maps</a></li>
+            </ul>
+
+            <div class="hr-line"></div>
+
+            <ul class="flex column">
+                <li><a href="">Forecast</a></li>
+                <li><a href="">History</a></li>
+            </ul>
+        </section>
+
+        <section class="right-side flex column">
+            <nav class="navbar flex column">
+                <div class="flex">
+                    <input type="text" placeholder="Location search..." id="cityinput" />
+                    <div>C | F</div>
+                </div>
+
+                <div class="dynamic-text flex row">
+                    <div class="flex column">
+                        <h2>Weather Constanta</h2>
+                        <p>coordinates</p>
+                    </div>
+                    <div class="flex column">
+                        <h2>temperature</h2>
+                        <p>wind speed</p>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="main flex">WEATHER APP</div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
