@@ -40,6 +40,7 @@ body,
 /* SIDEBAR */
 
 .sidebar {
+  background-color: #8fb5f8;
   width: 260px;
   height: 100vh;
   padding: 16px 0 0 16px;
