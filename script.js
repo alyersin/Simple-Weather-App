@@ -1,16 +1,16 @@
-//INTEGRATED GEOLOCATION API
-// const successCallback = (position) => {
-//   console.log(position);
-//   let currPos = position;
-//   let {
-//     coords: { latitude, longitude },
-//   } = currPos;
-//   console.log(latitude, longitude);
-// };
-// const errorCallback = (error) => {
-//   console.log(error);
-// };
-// navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+//INTEGRATED CURRENT GEOLOCATION API
+const successCallback = (position) => {
+  // console.log(position);
+  let currPos = position;
+  let {
+    coords: { latitude, longitude },
+  } = currPos;
+  console.log(latitude, longitude);
+};
+const errorCallback = (error) => {
+  console.log(error);
+};
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
 //GEOLOCATION & WEATHER API
 
@@ -44,12 +44,10 @@ getCity.addEventListener("keydown", (e) => {
         document.querySelector(
           ".location-temp"
         ).innerText = `${cityName}, ${countryName} ${currTemp} C`;
-        document.querySelector(".coordinates").innerText = `${lat.toFixed(
+        document.querySelector(".coordinates").innerText = `Lat: ${lat.toFixed(
           2
-        )} ${long.toFixed(2)}`;
-        // document.querySelector(
-        //   ".current-temp"
-        // ).innerText = `${currTemp} ℃ ${windspeed} km/h `;
+        )} / Long: ${long.toFixed(2)}`;
+
         getCity.value = "";
       } catch (e) {
         console.log("ERROR", e);

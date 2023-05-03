@@ -29,6 +29,7 @@ header,
 .header-container,
 .h-left-cont,
 .h-right-cont,
+.title,
 .wrapper,
 .sidebar,
 .navbar,
@@ -54,7 +55,6 @@ header {
 @media (min-width: 1080px) {
   .header-container {
     width: 1080px;
-    margin: auto;
     gap: 300px;
   }
 }
