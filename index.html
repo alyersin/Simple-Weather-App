@@ -10,10 +10,40 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
     <title>Document</title>
   </head>
 
   <body>
+    <!-- HEADER -->
+    <header class="flex row justify-c">
+      <div class="header-container flex justify-c">
+        <div class="h-left-cont flex">
+          <div class="flex">
+            <h2 class="title">Weather</h2>
+          </div>
+
+          <div>
+            <h3 class="location-temp">location <span>C | F</span></h3>
+            <h4 class="coordinates">coords</h4>
+          </div>
+        </div>
+
+        <div class="h-right-cont flex">
+          <i class="bi bi-search" style="color: #222"></i>
+          <input
+            type="text"
+            style="border: 0; background-color: transparent; outline: none"
+            placeholder="Location search..."
+            id="enter-city"
+          />
+        </div>
+      </div>
+    </header>
+
     <div class="wrapper flex row">
       <section class="sidebar flex column">
         <h1>Meteo project</h1>
@@ -36,25 +66,7 @@
 
       <section class="right-side flex column">
         <nav class="navbar flex column">
-          <div class="flex">
-            <input
-              type="text"
-              placeholder="Location search..."
-              id="enter-city"
-            />
-            <div>C | F</div>
-          </div>
-
-          <div class="dynamic-text flex row">
-            <div class="flex column">
-              <h2 class="location-name">Weather Constanta</h2>
-              <p class="location-coords">coordinates</p>
-            </div>
-            <div class="flex column">
-              <h2 class="current-temp">temperature</h2>
-              <p class="wind-speed">wind speed</p>
-            </div>
-          </div>
+          <div class="dynamic-text flex row"></div>
         </nav>
 
         <div class="main flex">WEATHER APP</div>

@@ -6,6 +6,10 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  background-image: url(./resources/background-1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   background-color: #ebebeb;
   display: block;
   position: relative;
@@ -21,30 +25,50 @@ li {
   list-style: none;
 }
 
-body,
+header,
+.header-container,
+.h-left-cont,
+.h-right-cont,
 .wrapper,
 .sidebar,
 .navbar,
 .main {
-  border: 1px solid #222;
+  border: 1px solid #fff;
 }
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .wrapper {
-    background-color: #fff;
     width: 1280px;
     margin: auto;
   }
+} */
+
+/******** HEADER ********/
+
+header {
+  background-color: #222;
+  color: white;
+  padding: 24px 0 24px 0;
+}
+
+@media (min-width: 1080px) {
+  .header-container {
+    width: 1080px;
+    margin: auto;
+    gap: 300px;
+  }
+}
+
+.h-left-cont {
+}
+
+.h-right-cont {
+  background-color: #fff;
 }
 
 /* SIDEBAR */
 
 .sidebar {
-  background-color: #8fb5f8;
-  width: 260px;
-  height: 100vh;
-  padding: 16px 0 0 16px;
-  gap: 34px;
 }
 
 ul {
