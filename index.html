@@ -23,12 +23,12 @@
       <div class="header-container flex justify-s">
         <div class="h-left-cont flex">
           <div class="title flex">
-            <h2>Weather</h2>
+            <h1>Weather</h1>
           </div>
 
           <div class="loc-coord flex column">
-            <h3 class="location-temp"></h3>
-            <h4 class="coordinates"></h4>
+            <h2 class="location-temp"></h2>
+            <h3 class="coordinates"></h3>
           </div>
         </div>
 
@@ -44,34 +44,14 @@
       </div>
     </header>
 
-    <div class="wrapper flex row">
-      <section class="sidebar flex column">
-        <h1>Meteo project</h1>
+    <section class="main flex row">
+      <div class="block-one flex column">
+        <h4>CURRENT WEATHER</h4>
+        <p class="time"></p>
+      </div>
 
-        <ul class="flex column">
-          <li><a href="">7-Day Weather</a></li>
-          <li><a href="">14-Day Weather</a></li>
-          <li><a href="">Weather Today</a></li>
-          <li><a href="">Webcams</a></li>
-          <li><a href="">Weather Maps</a></li>
-        </ul>
-
-        <div class="hr-line"></div>
-
-        <ul class="flex column">
-          <li><a href="">Forecast</a></li>
-          <li><a href="">History</a></li>
-        </ul>
-      </section>
-
-      <section class="right-side flex column">
-        <nav class="navbar flex column">
-          <div class="dynamic-text flex row"></div>
-        </nav>
-
-        <div class="main flex">WEATHER APP</div>
-      </section>
-    </div>
+      <div class="block-two flex"></div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="script.js"></script>

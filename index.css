@@ -46,8 +46,10 @@ header,
 
 /******** HEADER ********/
 @media (min-width: 1080px) {
-  .header-container {
+  .header-container,
+  .main {
     width: 1080px;
+    margin: auto;
     gap: 260px;
   }
 }
@@ -72,11 +74,12 @@ header {
 }
 
 .title {
-  font-size: 18px;
+  font-size: 14px;
   align-items: center;
 }
 
 .loc-coord {
+  font-size: 12px;
   width: 300px;
   gap: 8px;
 }
@@ -93,39 +96,6 @@ header {
   margin: 0 15px 4px 15px;
 }
 
-/* SIDEBAR */
+/******** SECTION ********/
 
-.sidebar {
-}
-
-ul {
-  gap: 14px;
-  font-size: 1.2em;
-}
-
-.hr-line {
-  border: 0.6px solid #fff;
-  opacity: 50%;
-  margin: 5px;
-}
-
-/* NAVBAR */
-
-.right-side {
-  width: 100%;
-}
-
-.navbar {
-  padding: 30px;
-  gap: 22px;
-}
-
-.dynamic-text {
-  gap: 300px;
-}
-
-/* MAIN */
-
-.main {
-  width: 100%;
-}
+.main;

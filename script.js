@@ -1,16 +1,17 @@
-//JS INTEGRATED GEOLOCATION
-const successCallback = (position) => {
-  // console.log(position);
-  let currPos = position;
-  let {
-    coords: { latitude, longitude },
-  } = currPos;
-  console.log(latitude, longitude);
-};
-const errorCallback = (error) => {
-  console.log(error);
-};
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+// //JS INTEGRATED GEOLOCATION
+// const successCallback = (position) => {
+//   let currPos = position;
+//   console.log(currPos);
+//   let {
+//     coords: { latitude, longitude },
+//   } = currPos;
+//   console.log(latitude, longitude);
+// };
+
+// const errorCallback = (error) => {
+//   console.log(error);
+// };
+// navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
 //GEOLOCATION & WEATHER API (JSON Format)
 
@@ -54,6 +55,16 @@ getCity.addEventListener("keydown", (e) => {
           )} N /  ${long.toFixed(2)} E`;
         }
         getCity.value = "";
+
+        //TIMEZONE API
+        const res2 = await axios.get(
+          `https://api.ipgeolocation.io/timezone?apiKey=dda0da9b52624e0c80f4972ad83865e2&lat=${lat}&long=${long}`
+        );
+        console.log(res2.data);
+        let rawTime = res2.data.date_time;
+        let currTime = rawTime.split("").splice(11, 5).join("");
+        console.log(currTime);
+        document.querySelector(".time").innerText = currTime;
       } catch (e) {
         console.log("ERROR", e);
       }
