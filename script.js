@@ -1,4 +1,4 @@
-//INTEGRATED CURRENT GEOLOCATION API
+//JS INTEGRATED GEOLOCATION
 const successCallback = (position) => {
   // console.log(position);
   let currPos = position;
@@ -12,7 +12,7 @@ const errorCallback = (error) => {
 };
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
-//GEOLOCATION & WEATHER API
+//GEOLOCATION & WEATHER API (JSON Format)
 
 const getCity = document.querySelector("#enter-city");
 
@@ -44,10 +44,15 @@ getCity.addEventListener("keydown", (e) => {
         document.querySelector(
           ".location-temp"
         ).innerText = `${cityName}, ${countryName} ${currTemp} C`;
-        document.querySelector(".coordinates").innerText = `Lat: ${lat.toFixed(
-          2
-        )} / Long: ${long.toFixed(2)}`;
-
+        if (long < 0) {
+          document.querySelector(".coordinates").innerText = ` ${lat.toFixed(
+            2
+          )}N /  ${long.toFixed(2)}W`;
+        } else if (long > 0) {
+          document.querySelector(".coordinates").innerText = ` ${lat.toFixed(
+            2
+          )} N /  ${long.toFixed(2)} E`;
+        }
         getCity.value = "";
       } catch (e) {
         console.log("ERROR", e);
