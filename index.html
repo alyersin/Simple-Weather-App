@@ -27,7 +27,10 @@
           </div>
 
           <div class="loc-coord flex column">
-            <h2 class="location-temp"></h2>
+            <div class="flex row">
+              <h2 class="location"></h2>
+              <span class="temp"></span>
+            </div>
             <h3 class="coordinates"></h3>
           </div>
         </div>
@@ -44,13 +47,35 @@
       </div>
     </header>
 
-    <section class="main flex row">
-      <div class="block-one flex column">
-        <h4>CURRENT WEATHER</h4>
-        <p class="time"></p>
+    <section class="main-container flex column wrap">
+      <div class="under-nav flex row justify-even">
+        <a href="" class="">
+          <h4>TODAY</h4>
+        </a>
+        <a href="" class="">
+          <h4>HOURLY</h4>
+        </a>
+        <a href="" class="">
+          <h4>DAILY</h4>
+        </a>
+        <a href="" class="">
+          <h4>MONTHLY</h4>
+        </a>
+        <a href="" class="">
+          <h4>AIR QUALITY</h4>
+        </a>
       </div>
+      <hr />
 
-      <div class="block-two flex"></div>
+      <div class="weather-container flex">
+        <div>
+          <h4>CURRENT WEATHER</h4>
+          <p class="time"></p>
+        </div>
+        <h2 class="temp"></h2>
+
+        <div></div>
+      </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
