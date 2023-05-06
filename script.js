@@ -94,12 +94,11 @@ const getNews = async () => {
     );
     console.log(res.data.articles);
     const newsFeed = res.data.articles;
-
-    document.querySelectorAll(".testNews").forEach((element) => {
-      for (let news of newsFeed) {
-        element.innerText = news.title;
-      }
-    });
+    document.querySelector(".testNewsOne").innerText = newsFeed[0].title;
+    document.querySelector(".testNewsTwo").innerText = newsFeed[1].title;
+    document.querySelector(".testNewsThree").innerText = newsFeed[2].title;
+    document.querySelector(".testNewsFour").innerText = newsFeed[3].title;
+    document.querySelector(".testNewsFive").innerText = newsFeed[4].title;
   } catch (e) {
     console.log("ERROR", e);
   }
