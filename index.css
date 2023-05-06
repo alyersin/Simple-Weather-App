@@ -35,7 +35,8 @@ header,
 .navbar,
 .main-container,
 .under-nav,
-.weather-container {
+.weather-container,
+.news-feed {
   border: 2px solid #fff;
 }
 
@@ -122,4 +123,10 @@ hr {
 
 .weather-container {
   width: 60%;
+}
+
+/* NEWS FEED */
+
+.news-feed {
+  width: 37%;
 }

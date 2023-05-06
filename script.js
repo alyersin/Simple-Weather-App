@@ -85,3 +85,23 @@ getCity.addEventListener("keydown", (e) => {
     getLocation(getCity.value);
   }
 });
+
+//NEWS FEED API
+const getNews = async () => {
+  try {
+    const res = await axios.get(
+      "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=69b56f99050f4f98a6241abd7d29c8e7"
+    );
+    console.log(res.data.articles);
+    const newsFeed = res.data.articles;
+
+    document.querySelectorAll(".testNews").forEach((element) => {
+      for (let news of newsFeed) {
+        element.innerText = news.title;
+      }
+    });
+  } catch (e) {
+    console.log("ERROR", e);
+  }
+};
+getNews();
