@@ -57,7 +57,7 @@ getCity.addEventListener("keydown", (e) => {
         }
 
         document.querySelectorAll(".temp").forEach((element) => {
-          element.innerText = `${currTemp} C`;
+          element.innerText = `${currTemp}° C`;
         });
         getCity.value = "";
 

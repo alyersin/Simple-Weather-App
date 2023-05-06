@@ -67,14 +67,49 @@
       </div>
       <hr />
 
-      <div class="weather-container flex">
-        <div>
-          <h4>CURRENT WEATHER</h4>
-          <p class="time"></p>
-        </div>
-        <h2 class="temp"></h2>
+      <div class="weather-container flex row justify-b">
+        <div class="l-panel flex column">
+          <div>
+            <h4>CURRENT WEATHER</h4>
+            <p class="time"></p>
+          </div>
 
-        <div></div>
+          <div class="flex row">
+            <i class="bi bi-brightness-high"></i>
+
+            <div class="flex column">
+              <div class="temp">
+                15
+                <span>C</span>
+              </div>
+
+              <div class="real-feel">RealFeel Sun 20</div>
+            </div>
+          </div>
+          <div class="flex">Sunny</div>
+        </div>
+
+        <div class="r-panel flex column">
+          <div>
+            <span>RealFeel Shade</span>
+            <span>15</span>
+          </div>
+          <hr />
+          <div>
+            <span>Air Quality</span>
+            <span>Fair</span>
+          </div>
+          <hr />
+          <div>
+            <span>Wind</span>
+            <span>7km/h</span>
+          </div>
+          <hr />
+          <div>
+            <span>Wind direction</span>
+            <span>East-North-East</span>
+          </div>
+        </div>
       </div>
     </section>
 
