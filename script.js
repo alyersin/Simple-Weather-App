@@ -86,6 +86,18 @@ getCity.addEventListener("keydown", (e) => {
   }
 });
 
+const newsOne = document.querySelector(".testNewsOne");
+const newsTwo = document.querySelector(".testNewsTwo");
+const newsThree = document.querySelector(".testNewsThree");
+const newsFour = document.querySelector(".testNewsFour");
+const newsFive = document.querySelector(".testNewsFive");
+
+const imgOne = document.querySelector(".imgOne");
+const imgTwo = document.querySelector(".imgTwo");
+const imgThree = document.querySelector(".imgThree");
+const imgFour = document.querySelector(".imgFour");
+const imgFive = document.querySelector(".imgFive");
+
 //NEWS FEED API
 const getNews = async () => {
   try {
@@ -94,11 +106,24 @@ const getNews = async () => {
     );
     console.log(res.data.articles);
     const newsFeed = res.data.articles;
-    document.querySelector(".testNewsOne").innerText = newsFeed[0].title;
-    document.querySelector(".testNewsTwo").innerText = newsFeed[1].title;
-    document.querySelector(".testNewsThree").innerText = newsFeed[2].title;
-    document.querySelector(".testNewsFour").innerText = newsFeed[3].title;
-    document.querySelector(".testNewsFive").innerText = newsFeed[4].title;
+    newsOne.innerText = newsFeed[0].title;
+    newsOne.setAttribute("href", res.data.articles[0].url);
+    imgOne.setAttribute("src", res.data.articles[0].urlToImage);
+    newsTwo.innerText = newsFeed[1].title;
+    newsTwo.setAttribute("href", res.data.articles[1].url);
+    imgTwo.setAttribute("src", res.data.articles[1].urlToImage);
+
+    newsThree.innerText = newsFeed[2].title;
+    newsThree.setAttribute("href", res.data.articles[2].url);
+    imgThree.setAttribute("src", res.data.articles[2].urlToImage);
+
+    newsFour.innerText = newsFeed[3].title;
+    newsFour.setAttribute("href", res.data.articles[3].url);
+    imgFour.setAttribute("src", res.data.articles[3].urlToImage);
+
+    newsFive.innerText = newsFeed[4].title;
+    newsFive.setAttribute("href", res.data.articles[4].url);
+    imgFive.setAttribute("src", res.data.articles[4].urlToImage);
   } catch (e) {
     console.log("ERROR", e);
   }
