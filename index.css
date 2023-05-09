@@ -6,7 +6,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-image: url(./resources/background-1.jpg);
+  background-image: url(./resources/background-2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -38,7 +38,8 @@ header,
 .weather-container,
 .news-feed,
 .topStories,
-img {
+img,
+.r-panel {
   /* border: 2px solid blue; */
 }
 
@@ -100,6 +101,10 @@ header {
   margin: 0 15px 4px 15px;
 }
 
+.loc-temp {
+  gap: 8px;
+}
+
 /******** MAIN SECTION ********/
 .main-container {
   background-color: #ebebeb;
@@ -131,6 +136,28 @@ hr {
   background-color: #fff;
 }
 
+.l-panel {
+  gap: 24px;
+}
+
+.r-panel {
+  width: 300px;
+}
+
+.r-panel-child {
+  margin: 14px 5px 14px 5px;
+}
+
+.md {
+  margin-top: 24px;
+}
+
+.icon-temp {
+  font-size: 64px;
+  gap: 20px;
+  margin-left: 30px;
+}
+
 /* NEWS FEED */
 
 .news-feed {
@@ -151,7 +178,7 @@ h5 {
   overflow: hidden;
   text-overflow: ellipsis;
   gap: 10px;
-  margin: auto;
+  margin: 14px 0 14px 0;
 }
 
 img {
