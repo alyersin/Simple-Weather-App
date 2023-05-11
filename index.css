@@ -160,6 +160,20 @@ hr {
   margin-left: 30px;
 }
 
+.temp-cont {
+  margin-left: 64px;
+}
+
+.sun,
+.moon {
+  position: absolute;
+  margin-left: -30px;
+}
+
+.hidden {
+  display: none;
+}
+
 /* NEWS FEED */
 
 .news-feed {

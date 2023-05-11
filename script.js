@@ -1,20 +1,36 @@
-//JS INTEGRATED GEOLOCATION
-const successCallback = (position) => {
-  let currPos = position;
-  console.log(currPos);
-  let {
-    coords: { latitude, longitude },
-  } = currPos;
-  console.log(latitude, longitude);
-  ////////////////////////////////////////////////
+// //INTEGRATED GEOLOCATION
+navigator.geolocation.getCurrentPosition((position) => {
+  const p = position.coords;
+  console.log(p.latitude, p.longitude);
 
-  ////////////////////////////////////////////////
-};
+  //REVERSE GEOCODING
+  const getReverseGeocode = async (lat, long) => {
+    try {
+      const res = await axios.get(
+        `https://eu1.locationiq.com/v1/reverse?key=pk.0e8c4606f6a1c1281338513c2ed2e79a&lat=${p.latitude}&lon=${p.longitude}&format=json`
+      );
+      console.log(res.data.address);
+      const fullAddress = res.data.address;
 
-const errorCallback = (error) => {
-  console.log(error);
-};
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+      const {
+        city: city,
+        country: country,
+        country_code: countryCode,
+        county: county,
+        house_number: houseNumber,
+        neighbourhood: neighbourhood,
+        postcode: postcode,
+        road: road,
+        suburb: suburb,
+      } = fullAddress;
+
+      //GEOLOCATION API
+    } catch (e) {
+      console.log("ERROR", e);
+    }
+  };
+  getReverseGeocode();
+});
 
 //GEOLOCATION & WEATHER API (JSON)
 
@@ -68,7 +84,7 @@ getCity.addEventListener("keydown", (e) => {
         }
 
         document.querySelectorAll(".temp").forEach((element) => {
-          element.innerText = `${currTemp}° C`;
+          element.innerText = `${currTemp}°C`;
         });
 
         //HOURLY WEATHER
@@ -87,34 +103,32 @@ getCity.addEventListener("keydown", (e) => {
 
         getCity.value = "";
 
-        // <i class="bi bi-brightness-high"></i>
-        // <i class="bi bi-moon"></i>;
-
         //WINDSPEED * DIRECTION
 
-        const windSp = document.querySelector(".wind-speed");
-        const windDir = document.querySelector(".wind-direction");
+        function wind() {
+          const windSp = document.querySelector(".wind-speed");
+          const windDir = document.querySelector(".wind-direction");
+          windSp.innerText = `${windSpeed} km/h`;
 
-        windSp.innerText = `${windSpeed} km/h`;
-
-        if (windDirection > 0 && windDirection < 45) {
-          windDir.innerText = "NNE";
-        } else if (windDirection > 45 && windDirection < 90) {
-          windDir.innerText = "ENE";
-        } else if (windDirection > 90 && windDirection < 135) {
-          windDir.innerText = "ESE";
-        } else if (windDirection > 135 && windDirection < 180) {
-          windDir.innerText = "SSE";
-        } else if (windDirection > 180 && windDirection < 225) {
-          windDir.innerText = "SSW";
-        } else if (windDirection > 225 && windDirection < 270) {
-          windDir.innerText = "WSW";
-        } else if (windDirection > 270 && windDirection < 315) {
-          windDir.innerText = "WNW";
-        } else if (windDirection > 315 && windDirection < 360) {
-          windDir.innerText = "NNW";
+          if (windDirection > 0 && windDirection < 45) {
+            windDir.innerText = "NNE";
+          } else if (windDirection > 45 && windDirection < 90) {
+            windDir.innerText = "ENE";
+          } else if (windDirection > 90 && windDirection < 135) {
+            windDir.innerText = "ESE";
+          } else if (windDirection > 135 && windDirection < 180) {
+            windDir.innerText = "SSE";
+          } else if (windDirection > 180 && windDirection < 225) {
+            windDir.innerText = "SSW";
+          } else if (windDirection > 225 && windDirection < 270) {
+            windDir.innerText = "WSW";
+          } else if (windDirection > 270 && windDirection < 315) {
+            windDir.innerText = "WNW";
+          } else if (windDirection > 315 && windDirection < 360) {
+            windDir.innerText = "NNW";
+          }
         }
-
+        wind();
         //TIMEZONE API
         const res2 = await axios.get(
           `https://api.ipgeolocation.io/timezone?apiKey=dda0da9b52624e0c80f4972ad83865e2&lat=${lat}&long=${long}`
@@ -131,6 +145,20 @@ getCity.addEventListener("keydown", (e) => {
           document.querySelector(".time").innerText = `${currTime} PM`;
         } else {
           document.querySelector(".time").innerText = `${currTime} AM`;
+        }
+
+        console.log(currTime);
+
+        let splitHour = parseInt(currTime.split(":")[0], 10);
+        let sun = document.querySelector(".sun");
+        let moon = document.querySelector(".moon");
+
+        if (splitHour >= 20) {
+          sun.classList.remove("hidden");
+          moon.classList.remove("hidden");
+        } else if (splitHour >= 6) {
+          sun.classList.remove("hidden");
+          moon.classList.add("hidden");
         }
 
         //LOOPING ARRAY FROM WEATHER API
