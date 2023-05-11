@@ -1,17 +1,20 @@
-// //JS INTEGRATED GEOLOCATION
-// const successCallback = (position) => {
-//   let currPos = position;
-//   console.log(currPos);
-//   let {
-//     coords: { latitude, longitude },
-//   } = currPos;
-//   console.log(latitude, longitude);
-// };
+//JS INTEGRATED GEOLOCATION
+const successCallback = (position) => {
+  let currPos = position;
+  console.log(currPos);
+  let {
+    coords: { latitude, longitude },
+  } = currPos;
+  console.log(latitude, longitude);
+  ////////////////////////////////////////////////
 
-// const errorCallback = (error) => {
-//   console.log(error);
-// };
-// navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  ////////////////////////////////////////////////
+};
+
+const errorCallback = (error) => {
+  console.log(error);
+};
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
 //GEOLOCATION & WEATHER API (JSON)
 
@@ -34,7 +37,7 @@ getCity.addEventListener("keydown", (e) => {
         } = currLoc;
         //WEATHER API
         const res1 = await axios.get(
-          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m,apparent_temperature,rain,snowfall,surface_pressure,cloudcover,windspeed_10m,winddirection_10m,windgusts_10m,uv_index,is_day&current_weather=true`
+          `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&hourly=temperature_2m,apparent_temperature,rain,snowfall,surface_pressure,cloudcover,relativehumidity_2m,precipitation,precipitation_probability,,windspeed_10m,winddirection_10m,windgusts_10m,uv_index,is_day&current_weather=true`
         );
 
         console.log(res1.data);
