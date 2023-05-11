@@ -138,10 +138,12 @@ hr {
 
 .l-panel {
   gap: 24px;
+  padding-left: 14px;
 }
 
 .r-panel {
   width: 300px;
+  padding-right: 14px;
 }
 
 .r-panel-child {

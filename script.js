@@ -65,7 +65,7 @@ getCity.addEventListener("keydown", (e) => {
         }
 
         document.querySelectorAll(".temp").forEach((element) => {
-          element.innerText = `${currTemp}°`;
+          element.innerText = `${currTemp}° C`;
         });
 
         //HOURLY WEATHER
@@ -82,10 +82,16 @@ getCity.addEventListener("keydown", (e) => {
         }, {});
         console.log(timeObj);
 
-        getCity.value = "";
+        // const d = new Date();
+        // let hourNow = d.getHours();
+        // const dayAndNight = document.querySelector(".dayNight");
+        // if (hourNow > 20 && hourNow < 06) {
+        //   dayAndNight.classList.add("bi bi-moon");
+        // } else {
+        //   dayAndNight.classList.add("bi bi-brightness-high");
+        // }
 
-        // <i class="bi bi-brightness-high"></i>
-        // <i class="bi bi-moon"></i>;
+        getCity.value = "";
 
         //WINDSPEED * DIRECTION
 
@@ -121,6 +127,8 @@ getCity.addEventListener("keydown", (e) => {
         let rawTime = res2.data.date_time;
         let currTime = rawTime.split("").splice(11, 5).join("");
 
+        console.log(currTime);
+
         let [hours, minutes] = currTime
           .split(":")
           .map((component) => parseInt(component));
@@ -137,11 +145,27 @@ getCity.addEventListener("keydown", (e) => {
 
         for (let key in timeObj) {
           let splitKey = key.split("").splice(0, 13).join("");
-          // console.log(splitKey);
+
           if (dateTime === splitKey) {
-            document.querySelector(".real-feel").innerText = `Real Feel ${
+            document.querySelector(".real-feel").innerText = `RealFeel ${
               timeObj[key].split(",")[0]
             }°`;
+
+            let cloudySunny = document.querySelector(".cloudySunny");
+            let cloudCover = timeObj[key].split(",")[1];
+            if (cloudCover > 0 && cloudCover <= 20) {
+              cloudySunny.innerText = "Sunny";
+            } else if (cloudCover > 20 && cloudCover <= 30) {
+              cloudySunny.innerText = "Mostly Sunny";
+            } else if (cloudCover > 30 && cloudCover <= 60) {
+              cloudySunny.innerText = "Partly Cloudy";
+            } else if (cloudCover > 60 && cloudCover <= 70) {
+              cloudySunny.innerText = "Partly Sunny";
+            } else if (cloudCover > 70 && cloudCover <= 90) {
+              cloudySunny.innerText = "Mostly Cloudy";
+            } else {
+              cloudySunny.innerText = "Overcast";
+            }
           }
         }
       } catch (e) {
