@@ -82,16 +82,10 @@ getCity.addEventListener("keydown", (e) => {
         }, {});
         console.log(timeObj);
 
-        // const d = new Date();
-        // let hourNow = d.getHours();
-        // const dayAndNight = document.querySelector(".dayNight");
-        // if (hourNow > 20 && hourNow < 06) {
-        //   dayAndNight.classList.add("bi bi-moon");
-        // } else {
-        //   dayAndNight.classList.add("bi bi-brightness-high");
-        // }
-
         getCity.value = "";
+
+        // <i class="bi bi-brightness-high"></i>
+        // <i class="bi bi-moon"></i>;
 
         //WINDSPEED * DIRECTION
 
@@ -127,8 +121,6 @@ getCity.addEventListener("keydown", (e) => {
         let rawTime = res2.data.date_time;
         let currTime = rawTime.split("").splice(11, 5).join("");
 
-        console.log(currTime);
-
         let [hours, minutes] = currTime
           .split(":")
           .map((component) => parseInt(component));
@@ -145,12 +137,9 @@ getCity.addEventListener("keydown", (e) => {
 
         for (let key in timeObj) {
           let splitKey = key.split("").splice(0, 13).join("");
-
+          // console.log(splitKey);
           if (dateTime === splitKey) {
-            document.querySelector(".real-feel").innerText = `RealFeel ${
-              timeObj[key].split(",")[0]
-            }°`;
-
+            innerText = `Real Feel ${timeObj[key].split(",")[0]}°`;
             let cloudySunny = document.querySelector(".cloudySunny");
             let cloudCover = timeObj[key].split(",")[1];
             if (cloudCover > 0 && cloudCover <= 20) {
