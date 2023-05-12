@@ -24,6 +24,8 @@ navigator.geolocation.getCurrentPosition((position) => {
         suburb: suburb,
       } = fullAddress;
 
+      console.log(city);
+
       //GEOLOCATION API
     } catch (e) {
       console.log("ERROR", e);
@@ -153,13 +155,13 @@ getCity.addEventListener("keydown", (e) => {
         let sun = document.querySelector(".sun");
         let moon = document.querySelector(".moon");
 
-        if (splitHour >= 20) {
-          sun.classList.remove("hidden");
-          moon.classList.remove("hidden");
-        } else if (splitHour >= 6) {
-          sun.classList.remove("hidden");
-          moon.classList.add("hidden");
-        }
+        // if (splitHour >= 20) {
+        //   sun.classList.remove("hidden");
+        //   moon.classList.remove("hidden");
+        // } else if (splitHour >= 06) {
+        //   sun.classList.remove("hidden");
+        //   moon.classList.add("hidden");
+        // }
 
         //LOOPING ARRAY FROM WEATHER API
         let date = rawTime.split("").splice(0, 10).join("");
