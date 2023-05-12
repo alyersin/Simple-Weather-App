@@ -1,38 +1,122 @@
-// //INTEGRATED GEOLOCATION
-navigator.geolocation.getCurrentPosition((position) => {
-  const p = position.coords;
-  console.log(p.latitude, p.longitude);
+// window.addEventListener("DOMContentLoaded", function () {
+//   // //INTEGRATED GEOLOCATION
+//   navigator.geolocation.getCurrentPosition((position) => {
+//     const p = position.coords;
+//     console.log(p.latitude, p.longitude);
 
-  //REVERSE GEOCODING
-  const getReverseGeocode = async (lat, long) => {
-    try {
-      const res = await axios.get(
-        `https://eu1.locationiq.com/v1/reverse?key=pk.0e8c4606f6a1c1281338513c2ed2e79a&lat=${p.latitude}&lon=${p.longitude}&format=json`
-      );
-      console.log(res.data.address);
-      const fullAddress = res.data.address;
+//     //REVERSE GEOCODING
+//     const getReverseGeocode = async () => {
+//       try {
+//         const res = await axios.get(
+//           `https://eu1.locationiq.com/v1/reverse?key=pk.0e8c4606f6a1c1281338513c2ed2e79a&lat=${p.latitude}&lon=${p.longitude}&format=json`
+//         );
+//         const fullAddress = res.data.address;
 
-      const {
-        city: city,
-        country: country,
-        country_code: countryCode,
-        county: county,
-        house_number: houseNumber,
-        neighbourhood: neighbourhood,
-        postcode: postcode,
-        road: road,
-        suburb: suburb,
-      } = fullAddress;
+//         const {
+//           city: city,
+//           country: country,
+//           country_code: countryCode,
+//           county: county,
+//           house_number: houseNumber,
+//           neighbourhood: neighbourhood,
+//           postcode: postcode,
+//           road: road,
+//           suburb: suburb,
+//         } = fullAddress;
 
-      console.log(city);
+//         const myInput = document.getElementById("enter-city");
+//         const myForm = document.getElementById("location-form");
 
-      //GEOLOCATION API
-    } catch (e) {
-      console.log("ERROR", e);
-    }
-  };
-  getReverseGeocode();
-});
+//         // Check if the action has already been performed
+//         const hasActionBeenPerformed =
+//           sessionStorage.getItem("actionPerformed");
+
+//         if (!hasActionBeenPerformed) {
+//           myInput.value = city;
+//           myForm.submit();
+//           console.log("djdjadajda");
+
+//           // Store the flag indicating the action has been performed
+//           sessionStorage.setItem("actionPerformed", "true");
+//         }
+//       } catch (e) {
+//         console.log("ERROR", e);
+//       }
+//     };
+//     getReverseGeocode();
+//   });
+// });
+
+///////////////////////////////////////////////////////////////////////////////
+// window.addEventListener("DOMContentLoaded", function () {
+//   const locationText = document.getElementById("enter-city");
+
+//   // Check if the Geolocation API is supported by the browser
+//   if ("geolocation" in navigator) {
+//     navigator.geolocation.getCurrentPosition(
+//       function (position) {
+//         const latitude = position.coords.latitude;
+//         const longitude = position.coords.longitude;
+
+//         //REVERSE GEOCODING
+//         const getReverseGeocode = async () => {
+//           try {
+//             const res = await axios.get(
+//               `https://eu1.locationiq.com/v1/reverse?key=pk.0e8c4606f6a1c1281338513c2ed2e79a&lat=${latitude}&lon=${longitude}&format=json`
+//             );
+//             const fullAddress = res.data.address;
+
+//             const {
+//               city: city,
+//               country: country,
+//               country_code: countryCode,
+//               county: county,
+//               house_number: houseNumber,
+//               neighbourhood: neighbourhood,
+//               postcode: postcode,
+//               road: road,
+//               suburb: suburb,
+//             } = fullAddress;
+
+//             locationText.value = `${city}`;
+
+//             const myInput = document.getElementById("enter-city");
+//             const myForm = document.getElementById("location-form");
+//             myForm.submit();
+//             // Check if the action has already been performed
+//             const hasActionBeenPerformed =
+//               sessionStorage.getItem("actionPerformed");
+
+//             if (!hasActionBeenPerformed) {
+//               myInput.value = city;
+//               myForm.submit();
+//               console.log("djdjadajda");
+
+//               // Store the flag indicating the action has been performed
+//               sessionStorage.setItem("actionPerformed", "true");
+//             }
+//           } catch (e) {
+//             console.log("ERROR", e);
+//           }
+//         };
+//         getReverseGeocode();
+
+//         console.log(latitude, longitude);
+
+//         // Display the location in HTML
+//         // locationText.value = `Latitude: ${latitude}, Longitude: ${longitude}`;
+//       },
+
+//       function (error) {
+//         console.error("Error getting location:", error.message);
+//         locationText.textContent = "Error getting location";
+//       }
+//     );
+//   } else {
+//     locationText.textContent = "Geolocation is not supported by your browser";
+//   }
+// });
+///////////////////////////////////////////////////////////////////////////////
 
 //GEOLOCATION & WEATHER API (JSON)
 
