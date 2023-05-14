@@ -256,7 +256,9 @@ getCity.addEventListener("keydown", (e) => {
           let splitKey = key.split("").splice(0, 13).join("");
           // console.log(splitKey);
           if (dateTime === splitKey) {
-            innerText = `Real Feel ${timeObj[key].split(",")[0]}°`;
+            document.querySelector(".real-feel").innerText = `RealFeel ${
+              timeObj[key].split(",")[0]
+            }°`;
             let cloudySunny = document.querySelector(".cloudySunny");
             let cloudCover = timeObj[key].split(",")[1];
             if (cloudCover > 0 && cloudCover <= 20) {
