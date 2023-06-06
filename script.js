@@ -1,123 +1,3 @@
-// window.addEventListener("DOMContentLoaded", function () {
-//   // //INTEGRATED GEOLOCATION
-//   navigator.geolocation.getCurrentPosition((position) => {
-//     const p = position.coords;
-//     console.log(p.latitude, p.longitude);
-
-//     //REVERSE GEOCODING
-//     const getReverseGeocode = async () => {
-//       try {
-//         const res = await axios.get(
-//           `https://eu1.locationiq.com/v1/reverse?key=pk.0e8c4606f6a1c1281338513c2ed2e79a&lat=${p.latitude}&lon=${p.longitude}&format=json`
-//         );
-//         const fullAddress = res.data.address;
-
-//         const {
-//           city: city,
-//           country: country,
-//           country_code: countryCode,
-//           county: county,
-//           house_number: houseNumber,
-//           neighbourhood: neighbourhood,
-//           postcode: postcode,
-//           road: road,
-//           suburb: suburb,
-//         } = fullAddress;
-
-//         const myInput = document.getElementById("enter-city");
-//         const myForm = document.getElementById("location-form");
-
-//         // Check if the action has already been performed
-//         const hasActionBeenPerformed =
-//           sessionStorage.getItem("actionPerformed");
-
-//         if (!hasActionBeenPerformed) {
-//           myInput.value = city;
-//           myForm.submit();
-//           console.log("djdjadajda");
-
-//           // Store the flag indicating the action has been performed
-//           sessionStorage.setItem("actionPerformed", "true");
-//         }
-//       } catch (e) {
-//         console.log("ERROR", e);
-//       }
-//     };
-//     getReverseGeocode();
-//   });
-// });
-
-///////////////////////////////////////////////////////////////////////////////
-// window.addEventListener("DOMContentLoaded", function () {
-//   const locationText = document.getElementById("enter-city");
-
-//   // Check if the Geolocation API is supported by the browser
-//   if ("geolocation" in navigator) {
-//     navigator.geolocation.getCurrentPosition(
-//       function (position) {
-//         const latitude = position.coords.latitude;
-//         const longitude = position.coords.longitude;
-
-//         //REVERSE GEOCODING
-//         const getReverseGeocode = async () => {
-//           try {
-//             const res = await axios.get(
-//               `https://eu1.locationiq.com/v1/reverse?key=pk.0e8c4606f6a1c1281338513c2ed2e79a&lat=${latitude}&lon=${longitude}&format=json`
-//             );
-//             const fullAddress = res.data.address;
-
-//             const {
-//               city: city,
-//               country: country,
-//               country_code: countryCode,
-//               county: county,
-//               house_number: houseNumber,
-//               neighbourhood: neighbourhood,
-//               postcode: postcode,
-//               road: road,
-//               suburb: suburb,
-//             } = fullAddress;
-
-//             locationText.value = `${city}`;
-
-//             const myInput = document.getElementById("enter-city");
-//             const myForm = document.getElementById("location-form");
-//             myForm.submit();
-//             // Check if the action has already been performed
-//             const hasActionBeenPerformed =
-//               sessionStorage.getItem("actionPerformed");
-
-//             if (!hasActionBeenPerformed) {
-//               myInput.value = city;
-//               myForm.submit();
-//               console.log("djdjadajda");
-
-//               // Store the flag indicating the action has been performed
-//               sessionStorage.setItem("actionPerformed", "true");
-//             }
-//           } catch (e) {
-//             console.log("ERROR", e);
-//           }
-//         };
-//         getReverseGeocode();
-
-//         console.log(latitude, longitude);
-
-//         // Display the location in HTML
-//         // locationText.value = `Latitude: ${latitude}, Longitude: ${longitude}`;
-//       },
-
-//       function (error) {
-//         console.error("Error getting location:", error.message);
-//         locationText.textContent = "Error getting location";
-//       }
-//     );
-//   } else {
-//     locationText.textContent = "Geolocation is not supported by your browser";
-//   }
-// });
-///////////////////////////////////////////////////////////////////////////////
-
 //GEOLOCATION & WEATHER API (JSON)
 
 const getCity = document.querySelector("#enter-city");
@@ -301,28 +181,29 @@ const imgFive = document.querySelector(".imgFive");
 const getNews = async () => {
   try {
     const res = await axios.get(
-      "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=69b56f99050f4f98a6241abd7d29c8e7"
+      "https://newsdata.io/api/1/news?apikey=pub_240967e66c77c70acdc537fbc5a8264b81e7f&q=pizza"
     );
-    // console.log(res.data.articles);
-    const newsFeed = res.data.articles;
+    console.log(res.data);
+    const newsFeed = res.data.results;
     newsOne.innerText = newsFeed[0].title;
-    newsOne.setAttribute("href", res.data.articles[0].url);
-    imgOne.setAttribute("src", res.data.articles[0].urlToImage);
+    newsOne.setAttribute("href", res.data.results[0].link);
+    imgOne.setAttribute("src", res.data.results[0].image_url);
+
     newsTwo.innerText = newsFeed[1].title;
-    newsTwo.setAttribute("href", res.data.articles[1].url);
-    imgTwo.setAttribute("src", res.data.articles[1].urlToImage);
+    newsTwo.setAttribute("href", res.data.results[1].link);
+    imgTwo.setAttribute("src", res.data.results[1].image_url);
 
     newsThree.innerText = newsFeed[2].title;
-    newsThree.setAttribute("href", res.data.articles[2].url);
-    imgThree.setAttribute("src", res.data.articles[2].urlToImage);
+    newsThree.setAttribute("href", res.data.results[2].link);
+    imgThree.setAttribute("src", res.data.results[2].image_url);
 
     newsFour.innerText = newsFeed[3].title;
-    newsFour.setAttribute("href", res.data.articles[3].url);
-    imgFour.setAttribute("src", res.data.articles[3].urlToImage);
+    newsFour.setAttribute("href", res.data.results[3].link);
+    imgFour.setAttribute("src", res.data.results[3].image_url);
 
     newsFive.innerText = newsFeed[4].title;
-    newsFive.setAttribute("href", res.data.articles[4].url);
-    imgFive.setAttribute("src", res.data.articles[4].urlToImage);
+    newsFive.setAttribute("href", res.data.results[4].link);
+    imgFive.setAttribute("src", res.data.results[4].image_url);
   } catch (e) {
     console.log("ERROR", e);
   }
